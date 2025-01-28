@@ -1,0 +1,35 @@
+input,
+p {
+  color: aliceblue;
+  font-family: "Ubuntu Mono", serif;
+  font-size: 1em;
+}
+
+.container-terminal {
+  width: auto;
+  padding-top: 5svh;
+  padding-right: 10svh;
+  padding-left: 10svh;
+}
+
+.user {
+  color: #4e8864;
+}
+
+.filepath {
+  color: #5e78c0;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+.text-anim {
+  color: #fff;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+}

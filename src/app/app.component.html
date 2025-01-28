@@ -1,3 +1,15 @@
-<presentation></presentation>
-<terminal-input></terminal-input>
-<router-outlet />
+<div *ngIf="launchPresentation">
+  <presentation-animation
+    (animationCompleted)="onAnimationCompleted()"
+  ></presentation-animation>
+</div>
+
+<div *ngIf="showOverlay">
+  <presentation></presentation>
+</div>
+
+<div *ngIf="showUserInput">
+  <terminal-input></terminal-input>
+</div>
+
+<router-outlet></router-outlet>
