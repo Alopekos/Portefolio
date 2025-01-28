@@ -6,6 +6,6 @@ import { HelpComponent } from '../../../help-components/help/help.component';
   standalone: true,
   imports: [HelpComponent],
   templateUrl: './not-a-command.component.html',
-  styleUrl: './not-a-command.component.css',
+  styleUrl: '../used-commands.css',
 })
 export class NotACommandComponent {}

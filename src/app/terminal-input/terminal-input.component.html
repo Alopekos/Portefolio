@@ -3,7 +3,13 @@
     <p class="line">
       <span class="user">remi&commat;legrand</span>:
       <span class="filepath">&nbsp;~/&nbsp;</span>
-      <input #inputCommand type="text" name="user-input" (keypress)="tryCommand($event, inputCommand.value)" autofocus/>
+      <input
+        #inputCommand
+        type="text"
+        name="user-input"
+        (keypress)="tryCommand($event, inputCommand)"
+        autofocus
+      />
     </p>
   </div>
 </div>

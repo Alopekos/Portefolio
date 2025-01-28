@@ -1,0 +1,43 @@
+p {
+  font-family: "Ubuntu Mono", serif;
+  color: #b1b1b1;
+  font-size: 1em;
+}
+
+.container-terminal {
+  width: auto;
+  padding-top: 2svh;
+  padding-right: 10svh;
+  padding-left: 10svh;
+}
+
+ul {
+  color: #b1b1b1;
+  font-family: "Ubuntu Mono", serif;
+  margin-top: 1svh;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1svh;
+}
+
+.rainbow-text {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.command {
+  color: #269097;
+}

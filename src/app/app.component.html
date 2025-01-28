@@ -17,6 +17,9 @@
     <div *ngIf="child == ''">
       <app-not-a-command></app-not-a-command>
     </div>
+    <div *ngIf="child == 'help'">
+      <app-help-command></app-help-command>
+    </div>
   </div>
 
   <terminal-input

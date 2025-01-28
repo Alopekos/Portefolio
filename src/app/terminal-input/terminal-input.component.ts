@@ -13,20 +13,26 @@ export class TerminalInputComponent {
   @Output() lsCommand = new EventEmitter<void>();
   @Output() notACommand = new EventEmitter<void>();
 
-  public tryCommand(event: KeyboardEvent, inputCommand: string): void {
+  public tryCommand(
+    event: KeyboardEvent,
+    inputCommand: HTMLInputElement
+  ): void {
+    var inputFromUser: string = '';
+
     if (event.key == 'Enter') {
-      inputCommand = inputCommand.toLowerCase().trim();
-      switch (inputCommand) {
+      inputFromUser = inputCommand.value.toLowerCase().trim();
+      switch (inputFromUser) {
         case 'help':
           this.helpCommand.emit();
           break;
 
+        case 'cl':
         case 'clear':
           this.clearCommand.emit();
           break;
 
         case 'ls':
-          console.log(inputCommand);
+        case 'list':
           this.lsCommand.emit();
           break;
 
@@ -34,6 +40,7 @@ export class TerminalInputComponent {
           this.notACommand.emit();
           break;
       }
+      inputCommand.value = '';
     }
   }
 }

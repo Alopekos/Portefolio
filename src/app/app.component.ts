@@ -7,6 +7,7 @@ import { PresentationAnimationComponent } from './presentation-components/presen
 import { HelpComponent } from './help-components/help/help.component';
 import { UsedCommandsComponent } from './used-commands-component/used-commands/used-commands.component';
 import { NotACommandComponent } from './used-commands-component/used-commands-content/not-a-command/not-a-command.component';
+import { HelpCommandComponent } from './used-commands-component/used-commands-content/help-command/help-command.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { NotACommandComponent } from './used-commands-component/used-commands-co
     HelpComponent,
     UsedCommandsComponent,
     NotACommandComponent,
+    HelpCommandComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -46,7 +48,7 @@ export class AppComponent {
   }
 
   onLsCommand(): void {
-    this.children.push('ls');
+    this.children.push('list');
     this.waitAndScroll();
   }
 
