@@ -1,6 +1,8 @@
+input,
 p {
   color: aliceblue;
   font-family: "Ubuntu Mono", serif;
+  font-size: 1em;
 }
 
 .container-terminal {
@@ -17,4 +19,15 @@ p {
 
 .user {
   color: #4e8864;
+}
+
+.filepath {
+  color: #5e78c0;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: 5px;
 }
