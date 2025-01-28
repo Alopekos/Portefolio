@@ -1,27 +1,31 @@
-# Portefolio
+# My Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+Welcome to my personal portfolio website. Here, you can explore the work I’ve done, learn more about my skills, and get in touch with me.
+I'm currently looking for a vocational training position as an app developer so feel free to contact me!
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Projects**: A showcase of my recent work, including detailed descriptions and links or code repositories.
+- **About**: Information about me, my background, and my approach to design and development.
+- **Contact**: Easy ways to reach out via email or social media.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- HTML
+- CSS
+- JavaScript
 
-## Build
+## How to View
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can view my portfolio live by visiting:  
+[W.I.P]
 
-## Running unit tests
+## Getting in Touch
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Feel free to reach out for collaborations or inquiries via the contact page or directly at:  
+[remi.legrand@le-campus-numerique.fr](mailto:remi.legrand@le-campus-numerique.fr)
 
-## Running end-to-end tests
+## Code
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This portfolio is open-source, feel free to explore or use any resources here.  
