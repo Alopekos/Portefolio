@@ -1,4 +1,4 @@
-# My Portfolio
+# My Portfolio (W.I.P)
 
 Welcome to my personal portfolio website. Here, you can explore the work I’ve done, learn more about my skills, and get in touch with me.
 I'm currently looking for a vocational training position as an app developer so feel free to contact me!
@@ -28,4 +28,4 @@ Feel free to reach out for collaborations or inquiries via the contact page or d
 
 ## Code
 
-This portfolio is open-source, feel free to explore or use any resources here.  
+This portfolio is open-source, feel free to explore or use any resources here.

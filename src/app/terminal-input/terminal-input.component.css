@@ -6,15 +6,10 @@ p {
 }
 
 .container-terminal {
-  height: 90svh;
   width: auto;
   padding-top: 5svh;
   padding-right: 10svh;
-  padding-bottom: 5svh;
   padding-left: 10svh;
-}
-
-.io-terminal {
 }
 
 .user {

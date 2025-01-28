@@ -1,0 +1,126 @@
+input,
+p {
+  color: aliceblue;
+  font-family: "Ubuntu Mono", serif;
+  font-size: 1em;
+}
+
+.container-terminal {
+  width: auto;
+  padding-top: 5svh;
+  padding-right: 10svh;
+  padding-left: 10svh;
+}
+
+.user {
+  color: #4e8864;
+}
+
+.neofetch-color {
+  color: #77c7db;
+}
+
+.filepath {
+  color: #5e78c0;
+}
+
+.neofetch-container {
+  display: flex;
+  justify-content: center;
+}
+
+.ascii-art {
+  color: #c5b051;
+}
+
+.ascii-white {
+  color: #ecebeb;
+}
+
+.ascii-red {
+  color: #e44343;
+}
+
+.neofetch-color-rect {
+  margin-top: 3svh;
+  display: flex;
+  height: 4svh;
+  flex-direction: row;
+  justify-content: center;
+}
+.neofetch-color-rect-two {
+  margin: 0;
+  display: flex;
+  height: 4svh;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rect {
+  display: flex;
+  width: 12%;
+}
+
+.bgd-black {
+  background-color: rgb(3, 3, 3);
+}
+
+.bgd-red {
+  background-color: #aa1616;
+}
+
+.bgd-green {
+  background-color: #4e8864;
+}
+
+.bgd-yellow {
+  background-color: #9b8a3e;
+}
+
+.bgd-blue {
+  background-color: #3b34a0;
+}
+
+.bgd-purple {
+  background-color: #8f3497;
+}
+
+.bgd-cyan {
+  background-color: #269097;
+}
+
+.bgd-white {
+  background-color: #b1b1b1;
+}
+
+.bg-black {
+  background-color: rgb(32, 32, 32);
+}
+
+.bg-red {
+  background-color: #e44343;
+}
+
+.bg-green {
+  background-color: #6caf85;
+}
+
+.bg-yellow {
+  background-color: #c5b051;
+}
+
+.bg-blue {
+  background-color: #675eee;
+}
+
+.bg-purple {
+  background-color: #bf53c9;
+}
+
+.bg-cyan {
+  background-color: #77c7db;
+}
+
+.bg-white {
+  background-color: #ecebeb;
+}
