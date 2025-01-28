@@ -1,15 +1,30 @@
-<div *ngIf="launchPresentation">
+<div *ngIf="showLoadingAnim">
   <presentation-animation
     (animationCompleted)="onAnimationCompleted()"
   ></presentation-animation>
 </div>
 
-<div *ngIf="showOverlay">
+<div *ngIf="!showLoadingAnim">
   <presentation></presentation>
-</div>
 
-<div *ngIf="showUserInput">
-  <terminal-input></terminal-input>
+  <div class="container-terminal">
+    <help></help>
+  </div>
+
+  <!-- List of used commands -->
+  <div *ngFor="let child of children">
+    <app-used-commands [name]="child"></app-used-commands>
+    <div *ngIf="child == ''">
+      <app-not-a-command></app-not-a-command>
+    </div>
+  </div>
+
+  <terminal-input
+    (helpCommand)="onHelpCommand()"
+    (clearCommand)="onClearCommand()"
+    (lsCommand)="onLsCommand()"
+    (notACommand)="onNotACommand()"
+  ></terminal-input>
 </div>
 
 <router-outlet></router-outlet>

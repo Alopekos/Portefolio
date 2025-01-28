@@ -1,10 +1,9 @@
 <div class="container-terminal">
   <div class="io-terminal">
-    <p>
+    <p class="line">
       <span class="user">remi&commat;legrand</span>:
-      <span class="filepath">~/</span>
-      <input type="text" name="user-input" id="user-input" />
+      <span class="filepath">&nbsp;~/&nbsp;</span>
+      <input #inputCommand type="text" name="user-input" (keypress)="tryCommand($event, inputCommand.value)" autofocus/>
     </p>
   </div>
 </div>
-<!-- TODO: change filepath depending on path -->

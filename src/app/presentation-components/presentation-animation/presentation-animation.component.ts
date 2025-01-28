@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class PresentationAnimationComponent {
   public textAnim = '';
-  private content = 'neosketch';
+  private content = 'neofetch';
 
   @Output() animationCompleted = new EventEmitter<void>();
 

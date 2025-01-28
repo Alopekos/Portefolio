@@ -1,3 +1,9 @@
+p {
+  font-family: "Ubuntu Mono", serif;
+  color: aliceblue;
+  font-size: 1em;
+}
+
 .container-terminal {
   width: auto;
   padding-top: 5svh;

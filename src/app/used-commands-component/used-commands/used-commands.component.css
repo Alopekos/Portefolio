@@ -7,6 +7,7 @@ p {
 
 .container-terminal {
   width: auto;
+  margin-top: 4svh;
   padding-right: 10svh;
   padding-left: 10svh;
 }
@@ -17,14 +18,6 @@ p {
 
 .filepath {
   color: #5e78c0;
-}
-
-input {
-  background: none;
-  border: none;
-  outline: none;
-  height: 10svh;
-  width: 100%;
 }
 
 .line {

@@ -1,8 +1,11 @@
 input,
 p {
   color: aliceblue;
-  font-family: "Ubuntu Mono", serif;
   font-size: 1em;
+  font-family: "Ubuntu Mono", serif;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .container-terminal {
@@ -123,4 +126,37 @@ p {
 
 .bg-white {
   background-color: #ecebeb;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  height: 22px;
+  opacity: 1;
+}
+
+.icon-background {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  background-color: #269097;
+  border-radius: 4px;
+  width: 1svh;
+  transition: width 1s, opacity 0.4s;
+}
+
+.socials:hover > .icon-background {
+  opacity: 1;
+  width: 12svh;
+}
+.arrow {
+  opacity: 1;
+  transition: 0.2;
+}
+.socials:hover > .arrow {
+  opacity: 0;
 }
