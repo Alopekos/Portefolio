@@ -27,11 +27,11 @@ import { HelpCommandComponent } from './used-commands-component/used-commands-co
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'portefolio';
+  title: string = 'portefolio';
   children: string[] = [];
 
-  addNewChild() {}
-  public showLoadingAnim = true;
+  public showLoadingAnim: boolean = true;
+  public isNotCleared: boolean = true;
 
   onAnimationCompleted(): void {
     this.showLoadingAnim = false;
@@ -43,7 +43,8 @@ export class AppComponent {
   }
 
   onClearCommand(): void {
-    this.children.push('clear');
+    this.children = [];
+    this.isNotCleared = false;
     this.waitAndScroll();
   }
 

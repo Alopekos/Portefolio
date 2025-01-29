@@ -7,7 +7,7 @@ p {
 
 .container-terminal {
   width: auto;
-  margin-top: 4svh;
+  padding-top: 4svh;
   padding-right: 10svh;
   padding-left: 10svh;
 }

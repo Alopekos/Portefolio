@@ -5,10 +5,12 @@
 </div>
 
 <div *ngIf="!showLoadingAnim">
-  <presentation></presentation>
-
-  <div class="container-terminal">
-    <help></help>
+  <!-- Presentation on load -->
+  <div *ngIf="isNotCleared">
+    <presentation></presentation>
+    <div class="container-terminal">
+      <help></help>
+    </div>
   </div>
 
   <!-- List of used commands -->
