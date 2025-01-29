@@ -92,13 +92,13 @@ export class AppComponent {
         case 'cd ./projects':
         case 'cd projects':
         case './projects':
-          this.children.push('cd');
+          this.children.push('change directory');
           this.currentPath = 'user/projects/';
           break;
         case 'cd ./about':
         case 'cd about':
         case './about':
-          this.children.push('cd');
+          this.children.push('change directory');
           this.currentPath = 'user/about/';
           break;
         default:
