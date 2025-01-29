@@ -16,19 +16,52 @@
   <!-- List of used commands -->
   <div *ngFor="let child of children">
     <app-used-commands [name]="child"></app-used-commands>
-    <div *ngIf="child == ''">
-      <app-not-a-command></app-not-a-command>
-    </div>
-    <div *ngIf="child == 'help'">
+
+    <div *ngIf="child == 'help'; else two">
       <app-help-command></app-help-command>
     </div>
+
+    <ng-template #two>
+      <div *ngIf="child == 'list'; else three">
+        <app-ls-command [currentPath]="currentPath">></app-ls-command>
+      </div>
+    </ng-template>
+
+    <ng-template #three>
+      <div *ngIf="child == 'cd'; else four">
+        <app-ls-command-without-help [currentPathWithoutHelp]="currentPath"
+          >></app-ls-command-without-help
+        >
+      </div>
+    </ng-template>
+
+    <ng-template #four>
+      <div *ngIf="child == 'home'; else five">
+        <app-ls-command-without-help [currentPathWithoutHelp]="currentPath"
+          >></app-ls-command-without-help
+        >
+      </div>
+    </ng-template>
+
+    <ng-template #five>
+      <div *ngIf="child == 'neofetch'; else six">
+        <app-neofetch-command></app-neofetch-command>
+      </div>
+    </ng-template>
+
+    <ng-template #six>
+      <app-not-a-command></app-not-a-command>
+    </ng-template>
   </div>
 
   <terminal-input
     (helpCommand)="onHelpCommand()"
     (clearCommand)="onClearCommand()"
     (lsCommand)="onLsCommand()"
-    (notACommand)="onNotACommand()"
+    (goBackCommand)="onGoBackCommand()"
+    (neofetchCommand)="onNeofetchCommand()"
+    (cdCommand)="onCdCommand($event)"
+    (notACommand)="onNotACommand($event)"
   ></terminal-input>
 </div>
 

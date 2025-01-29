@@ -23,7 +23,7 @@ li {
   margin-top: 1svh;
 }
 
-.rainbow-text {
+/* .rainbow-text {
   background-image: linear-gradient(
     to left,
     violet,
@@ -36,8 +36,12 @@ li {
   );
   -webkit-background-clip: text;
   color: transparent;
-}
+} */
 
 .command {
   color: #269097;
+}
+
+.command-red {
+  color: #aa1616;
 }
