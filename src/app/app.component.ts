@@ -11,7 +11,7 @@ import { HelpCommandComponent } from './used-commands-component/used-commands-co
 import { LsCommandComponent } from './used-commands-component/used-commands-content/ls-command/ls-command.component';
 import { LsCommandComponentWithoutHelp } from './used-commands-component/used-commands-content/ls-command-without-help/ls-command-without-help.component';
 import { NeofetchCommandComponent } from './used-commands-component/used-commands-content/neofetch-command/neofetch-command.component';
-
+import { PortfolioV1Component } from './used-commands-component/used-commands-content/content-for-cd-command/portfolio-v1/portfolio-v1.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -28,6 +28,7 @@ import { NeofetchCommandComponent } from './used-commands-component/used-command
     LsCommandComponent,
     LsCommandComponentWithoutHelp,
     NeofetchCommandComponent,
+    PortfolioV1Component,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -89,11 +90,13 @@ export class AppComponent {
     if (this.currentPath == 'user/') {
       switch (event) {
         case 'cd ./projects':
+        case 'cd projects':
         case './projects':
           this.children.push('cd');
           this.currentPath = 'user/projects/';
           break;
         case 'cd ./about':
+        case 'cd about':
         case './about':
           this.children.push('cd');
           this.currentPath = 'user/about/';
@@ -105,6 +108,7 @@ export class AppComponent {
     if (this.currentPath == 'user/projects/') {
       switch (event) {
         case 'cd ./portfolio_v1':
+        case 'cd portfolio_v1':
         case './portfolio_v1':
           this.children = [];
           this.isNotCleared = false;

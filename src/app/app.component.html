@@ -50,6 +50,12 @@
     </ng-template>
 
     <ng-template #six>
+      <div *ngIf="child == 'portfolio_v1'; else seven">
+        <app-portfolio-v1></app-portfolio-v1>
+      </div>
+    </ng-template>
+
+    <ng-template #seven>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>

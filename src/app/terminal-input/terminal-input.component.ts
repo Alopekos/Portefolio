@@ -16,6 +16,21 @@ export class TerminalInputComponent {
   @Output() cdCommand = new EventEmitter<string>();
   @Output() neofetchCommand = new EventEmitter<void>();
 
+  cdCommandPossibilities: string[] = [
+    'cd ./projects',
+    'cd projects',
+    './projects',
+    'cd ./about',
+    'cd about',
+    './about',
+    'cd ./secret',
+    'cd secret',
+    './secret',
+    'cd ./portfolio_v1',
+    'cd portfolio_v1',
+    './portfolio_v1',
+  ];
+
   public tryCommand(
     event: KeyboardEvent,
     inputCommand: HTMLInputElement
@@ -49,14 +64,7 @@ export class TerminalInputComponent {
           this.neofetchCommand.emit();
           break;
 
-        case 'cd ./projects':
-        case './projects':
-        case 'cd ./about':
-        case './about':
-        case 'cd ./secret':
-        case './secret':
-        case 'cd ./portfolio_v1':
-        case './portfolio_v1':
+        case this.checkCdCommands(inputCommand.value):
           this.cdCommand.emit(inputCommand.value);
           break;
 
@@ -66,5 +74,14 @@ export class TerminalInputComponent {
       }
       inputCommand.value = '';
     }
+  }
+
+  checkCdCommands(input: string): string {
+    for (const element of this.cdCommandPossibilities) {
+      if (input === element) {
+        return input;
+      }
+    }
+    return '';
   }
 }
