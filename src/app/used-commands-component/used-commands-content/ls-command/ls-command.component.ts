@@ -10,12 +10,15 @@ import { CommonModule } from '@angular/common';
 })
 export class LsCommandComponent implements OnInit {
   @Input() currentPath: string = '';
+  @Input() currentChild: string = '';
   @Output() currentPathChange = new EventEmitter<string>();
 
   currentPathForSingleComponent: string = '';
+  currentChildForSingleComponent: string = '';
 
   ngOnInit() {
     this.currentPathForSingleComponent = this.currentPath;
+    this.currentChildForSingleComponent = this.currentChild;
   }
 
   updateCurrentPath(event: string): void {

@@ -1,10 +1,24 @@
 <div class="container-terminal">
   <ul *ngIf="currentPathForSingleComponent == 'user/'">
-    <li>./<span class="txt-blue">projects</span></li>
     <li>./<span class="txt-green">about</span></li>
+    <li>./<span class="txt-blue">projects</span></li>
     <li>./<span class="txt-blue">secrets</span></li>
+    <div
+      *ngIf="
+        currentChildForSingleComponent == 'ls -a' ||
+        currentChildForSingleComponent == 'list -a'
+      "
+    >
+      <li>./<span class="txt-green">.secret1</span></li>
+      <li>./<span class="txt-green">.secret2</span></li>
+    </div>
   </ul>
   <ul *ngIf="currentPathForSingleComponent == 'user/projects/'">
+    <li>./<span class="txt-green">portfolio_v1</span></li>
+    <li>./<span class="txt-green">WIP</span></li>
+    <li>./<span class="txt-green">projects</span></li>
+  </ul>
+  <ul *ngIf="currentPathForSingleComponent == 'user/secrets/'">
     <li>./<span class="txt-green">portfolio_v1</span></li>
     <li>./<span class="txt-green">WIP</span></li>
     <li>./<span class="txt-green">projects</span></li>

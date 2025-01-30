@@ -17,70 +17,72 @@
   <div *ngFor="let child of children">
     <app-used-commands [name]="child"></app-used-commands>
 
-    <div *ngIf="child == 'man'; else two">
+    <div *ngIf="child == 'help'; else two">
       <app-help-command></app-help-command>
     </div>
 
     <ng-template #two>
-      <div *ngIf="child == 'ls'; else three">
-        <app-ls-command [currentPath]="currentPath">></app-ls-command>
+      <div
+        *ngIf="
+          child == 'ls' ||
+            child == 'list' ||
+            child == '~/' ||
+            child == 'cd ~/' ||
+            child == 'cd' ||
+            child == 'cd ./projects' ||
+            child == './projects' ||
+            child == 'cd projects' ||
+            child == 'ls -a' ||
+            child == 'list -a';
+          else three
+        "
+      >
+        <app-ls-command
+          [currentPath]="currentPath"
+          [currentChild]="currentChild"
+        ></app-ls-command>
       </div>
     </ng-template>
 
     <ng-template #three>
-      <div *ngIf="child == 'cd'; else four">
-        <app-ls-command-without-help [currentPathWithoutHelp]="currentPath"
-          >></app-ls-command-without-help
-        >
-      </div>
-    </ng-template>
-
-    <ng-template #four>
-      <div *ngIf="child == 'home'; else five">
-        <app-ls-command-without-help [currentPathWithoutHelp]="currentPath"
-          >></app-ls-command-without-help
-        >
-      </div>
-    </ng-template>
-
-    <ng-template #five>
-      <div *ngIf="child == 'neofetch'; else six">
+      <div *ngIf="child == 'neofetch' || child == 'neo'; else four">
         <app-neofetch-command></app-neofetch-command>
       </div>
     </ng-template>
 
-    <ng-template #six>
-      <div *ngIf="child == 'portfolio_v1'; else seven">
+    <ng-template #four>
+      <div *ngIf="child == 'portfolio_v1'; else five">
         <app-portfolio-v1></app-portfolio-v1>
       </div>
     </ng-template>
 
-    <ng-template #seven>
-      <div *ngIf="child == 'about'; else eight">
+    <ng-template #five>
+      <div
+        *ngIf="
+          child == './about' || child == 'cd ./about' || child == 'cd about';
+          else six
+        "
+      >
         <app-about></app-about>
       </div>
     </ng-template>
 
-    <ng-template #eight>
-      <div *ngIf="child == 'git'; else nine">
+    <ng-template #six>
+      <div *ngIf="child == 'git'; else seven">
         <app-git></app-git>
       </div>
     </ng-template>
 
-    <ng-template #nine>
+    <ng-template #seven>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>
 
   <terminal-input
-    (helpCommand)="onHelpCommand()"
     (clearCommand)="onClearCommand()"
-    (lsCommand)="onLsCommand()"
-    (goBackCommand)="onGoBackCommand()"
-    (neofetchCommand)="onNeofetchCommand()"
     (cdCommand)="onCdCommand($event)"
     (notACommand)="onNotACommand($event)"
-    (gitEasterEgg)="onGitEasterEgg()"
+    (sendInputStringFromCommand)="onStringReceivedFromCommand($event)"
   ></terminal-input>
 </div>
 

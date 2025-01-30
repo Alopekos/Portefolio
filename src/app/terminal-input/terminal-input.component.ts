@@ -8,15 +8,10 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
   styleUrl: './terminal-input.component.css',
 })
 export class TerminalInputComponent {
-  @Output() helpCommand = new EventEmitter<void>();
   @Output() clearCommand = new EventEmitter<void>();
-  @Output() lsCommand = new EventEmitter<void>();
   @Output() notACommand = new EventEmitter<string>();
-  @Output() goBackCommand = new EventEmitter<void>();
   @Output() cdCommand = new EventEmitter<string>();
-  @Output() neofetchCommand = new EventEmitter<void>();
-  @Output() saveUserCommand = new EventEmitter<string>();
-  @Output() gitEasterEgg = new EventEmitter<void>();
+  @Output() sendInputStringFromCommand = new EventEmitter<string>();
   //sudo su -
   //man -
   //htop ?
@@ -24,6 +19,21 @@ export class TerminalInputComponent {
   userCommandsList: string[] = [];
   indexCommand: number = -1;
   resetCommands: boolean = false;
+
+  commandPossibilities: string[] = [
+    'help',
+    'git',
+    'cl',
+    'clear',
+    'ls',
+    'list',
+    'ls -a',
+    'list -a',
+    'cd ~/',
+    '~/',
+    'neo',
+    'neofetch',
+  ];
 
   cdCommandPossibilities: string[] = [
     'cd ./projects',
@@ -52,35 +62,11 @@ export class TerminalInputComponent {
       inputFromUser = this.trimIfNecessary(inputFromUser);
 
       switch (inputFromUser) {
-        case 'help':
-        case 'man':
-        case 'manual':
-          this.helpCommand.emit();
-          break;
-        case 'git':
-          this.gitEasterEgg.emit();
-          break;
-        case 'cl':
-        case 'clear':
-          this.clearCommand.emit();
+        case this.checkCommands(inputFromUser):
+          this.sendInputStringFromCommand.emit(inputCommand.value);
           break;
 
-        case 'ls':
-        case 'list':
-          this.lsCommand.emit();
-          break;
-
-        case '..':
-        case 'cd ..':
-          this.goBackCommand.emit();
-          break;
-
-        case 'neo':
-        case 'neofetch':
-          this.neofetchCommand.emit();
-          break;
-
-        case this.checkCdCommands(inputCommand.value):
+        case this.checkCdCommands(inputFromUser):
           this.cdCommand.emit(inputCommand.value);
           break;
 
@@ -100,6 +86,15 @@ export class TerminalInputComponent {
       return tempTrim;
     }
     return inputFromUser;
+  }
+
+  checkCommands(input: string): string {
+    for (const element of this.commandPossibilities) {
+      if (input == element) {
+        return input;
+      }
+    }
+    return '';
   }
 
   checkCdCommands(input: string): string {
