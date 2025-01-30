@@ -1,0 +1,16 @@
+p {
+  font-family: "Ubuntu Mono", serif;
+  margin-top: 1svh;
+  color: var(--g-white-dark);
+  font-size: 1em;
+}
+
+.command {
+  color: var(--g-cyan);
+}
+
+.container-terminal {
+  width: auto;
+  padding-right: 10svh;
+  padding-left: 10svh;
+}

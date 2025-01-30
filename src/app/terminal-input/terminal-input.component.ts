@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Component({
   selector: 'terminal-input',
@@ -15,6 +15,15 @@ export class TerminalInputComponent {
   @Output() goBackCommand = new EventEmitter<void>();
   @Output() cdCommand = new EventEmitter<string>();
   @Output() neofetchCommand = new EventEmitter<void>();
+  @Output() saveUserCommand = new EventEmitter<string>();
+  @Output() gitEasterEgg = new EventEmitter<void>();
+  //sudo su -
+  //man -
+  //htop ?
+  //man chown
+  userCommandsList: string[] = [];
+  indexCommand: number = -1;
+  resetCommands: boolean = false;
 
   cdCommandPossibilities: string[] = [
     'cd ./projects',
@@ -38,12 +47,19 @@ export class TerminalInputComponent {
     var inputFromUser: string = '';
 
     if (event.key == 'Enter') {
+      this.indexCommand = -1;
       inputFromUser = inputCommand.value.toLowerCase().trim();
+      inputFromUser = this.trimIfNecessary(inputFromUser);
+
       switch (inputFromUser) {
         case 'help':
+        case 'man':
+        case 'manual':
           this.helpCommand.emit();
           break;
-
+        case 'git':
+          this.gitEasterEgg.emit();
+          break;
         case 'cl':
         case 'clear':
           this.clearCommand.emit();
@@ -70,10 +86,20 @@ export class TerminalInputComponent {
 
         default:
           this.notACommand.emit(inputCommand.value);
+          inputCommand.value = '';
           break;
       }
+      this.addCommandToList(inputCommand.value);
       inputCommand.value = '';
     }
+  }
+
+  trimIfNecessary(inputFromUser: string): string {
+    var tempTrim = inputFromUser.trim().split(/\s+/)[0];
+    if (tempTrim == 'git') {
+      return tempTrim;
+    }
+    return inputFromUser;
   }
 
   checkCdCommands(input: string): string {
@@ -83,5 +109,34 @@ export class TerminalInputComponent {
       }
     }
     return '';
+  }
+
+  addCommandToList(event: string) {
+    if (event != '') {
+      this.userCommandsList.push(event);
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  arrowUp(event: KeyboardEvent): void {
+    const inputElement = document.querySelector(
+      'input[name="user-input"]'
+    ) as HTMLInputElement;
+
+    if (event.key === 'ArrowUp') {
+      this.indexCommand++;
+
+      if (
+        this.indexCommand >= 0 &&
+        this.indexCommand < this.userCommandsList.length
+      ) {
+        this.userCommandsList.reverse();
+        inputElement.value = this.userCommandsList[this.indexCommand];
+        this.userCommandsList.reverse();
+      }
+    } else if (event.key == 'ArrowDown') {
+      this.indexCommand = -1;
+      inputElement.value = '';
+    }
   }
 }

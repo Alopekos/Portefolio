@@ -17,18 +17,18 @@
   <div *ngFor="let child of children">
     <app-used-commands [name]="child"></app-used-commands>
 
-    <div *ngIf="child == 'help'; else two">
+    <div *ngIf="child == 'man'; else two">
       <app-help-command></app-help-command>
     </div>
 
     <ng-template #two>
-      <div *ngIf="child == 'list'; else three">
+      <div *ngIf="child == 'ls'; else three">
         <app-ls-command [currentPath]="currentPath">></app-ls-command>
       </div>
     </ng-template>
 
     <ng-template #three>
-      <div *ngIf="child == 'change directory'; else four">
+      <div *ngIf="child == 'cd'; else four">
         <app-ls-command-without-help [currentPathWithoutHelp]="currentPath"
           >></app-ls-command-without-help
         >
@@ -56,11 +56,21 @@
     </ng-template>
 
     <ng-template #seven>
+      <div *ngIf="child == 'about'; else eight">
+        <app-about></app-about>
+      </div>
+    </ng-template>
+
+    <ng-template #eight>
+      <div *ngIf="child == 'git'; else nine">
+        <app-git></app-git>
+      </div>
+    </ng-template>
+
+    <ng-template #nine>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>
-
-  <app-portfolio-v1></app-portfolio-v1>
 
   <terminal-input
     (helpCommand)="onHelpCommand()"
@@ -70,6 +80,7 @@
     (neofetchCommand)="onNeofetchCommand()"
     (cdCommand)="onCdCommand($event)"
     (notACommand)="onNotACommand($event)"
+    (gitEasterEgg)="onGitEasterEgg()"
   ></terminal-input>
 </div>
 

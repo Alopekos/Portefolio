@@ -3,18 +3,23 @@
   --g-black: #202020;
   --g-red-dark: #aa1616;
   --g-red: #e44343;
-  --g-green-dark:#4e8864;
+  --g-green-dark: #4e8864;
   --g-green: #6caf85;
-  --g-yellow-dark:#9b8a3e;
+  --g-yellow-dark: #9b8a3e;
   --g-yellow: #c5b051;
-  --g-blue-dark:#3b34a0;
+  --g-blue-dark: #3b34a0;
   --g-blue: #675eee;
-  --g-purple-dark:#8f3497;
-  --g-purple:#bf53c9;
+  --g-purple-dark: #8f3497;
+  --g-purple: #bf53c9;
   --g-cyan-dark: #269097;
   --g-cyan: #77c7db;
   --g-white-dark: #b1b1b1;
-  --g-white:#ecebeb;
+  --g-white: #ecebeb;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard syntax */
 }
 
 html {
@@ -36,6 +41,7 @@ body {
 
 p {
   margin: 0;
+  line-height: 1.2em;
 }
 a {
   text-decoration: none;

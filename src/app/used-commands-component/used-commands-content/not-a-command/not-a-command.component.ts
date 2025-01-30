@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelpComponent } from '../../../help-components/help/help.component';
+import { HelpComponent } from '../help-command/help-components/help/help.component';
 
 @Component({
   selector: 'app-not-a-command',
