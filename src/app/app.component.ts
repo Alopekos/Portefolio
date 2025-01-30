@@ -11,7 +11,7 @@ import { HelpCommandComponent } from './used-commands-component/used-commands-co
 import { LsCommandComponent } from './used-commands-component/used-commands-content/ls-command/ls-command.component';
 import { NeofetchCommandComponent } from './used-commands-component/used-commands-content/neofetch-command/neofetch-command.component';
 import { PortfolioV1Component } from './used-commands-component/used-commands-content/content-for-cd-command/portfolio-v1/portfolio-v1.component';
-import { AboutComponent } from './used-commands-component/used-commands-content/content-for-cd-command/about/about.component';
+import { InfoComponent } from './used-commands-component/used-commands-content/content-for-cd-command/info/info.component';
 import { GitComponent } from './used-commands-component/used-commands-content/git/git.component';
 
 @Component({
@@ -30,7 +30,7 @@ import { GitComponent } from './used-commands-component/used-commands-content/gi
     LsCommandComponent,
     NeofetchCommandComponent,
     PortfolioV1Component,
-    AboutComponent,
+    InfoComponent,
     GitComponent,
   ],
   templateUrl: './app.component.html',
@@ -40,10 +40,11 @@ export class AppComponent {
   title: string = 'portefolio';
   children: string[] = [];
   currentChild: string = '';
+
   // pathHierarchy = {
   //   'user/': {
   //     'projects/': ['project1', 'project2', 'project3'],
-  //     'about/': ['aboutme'],
+  //     'info/': ['aboutme'],
   //     'secret/': ['secret'],
   //   },
   // };
@@ -52,10 +53,6 @@ export class AppComponent {
   public isNotCleared: boolean = true;
 
   @Input() currentPath: string = 'user/';
-
-  onCurrentPathChange(newPath: string): void {
-    this.currentPath = newPath;
-  }
 
   onAnimationCompleted(): void {
     this.showLoadingAnim = false;
@@ -82,32 +79,48 @@ export class AppComponent {
 
   onCdCommand(event: string): void {
     if (this.currentPath == 'user/') {
-      switch (event) {
-        case 'cd ./projects':
-        case 'cd projects':
-        case './projects':
-          this.children.push(event);
-          this.currentChild = event;
+      switch (true) {
+        case event.includes('projects'):
           this.currentPath = 'user/projects/';
-          break;
-        case 'cd ./about':
-        case 'cd about':
-        case './about':
           this.children.push(event);
           this.currentChild = event;
           break;
+
+        case event.includes('info'):
+          this.children.push(event);
+          this.currentChild = event;
+          break;
+
+        case event.includes('secrets'):
+          this.currentPath = 'user/secrets/';
+          this.children.push(event);
+          this.currentChild = event;
+          break;
+
         default:
           break;
       }
     }
+
     if (this.currentPath == 'user/projects/') {
-      switch (event) {
-        case 'cd ./portfolio_v1':
-        case 'cd portfolio_v1':
-        case './portfolio_v1':
-          this.children.push('portfolio_v1');
+      switch (true) {
+        case event.includes('portfolio_v1'):
+          this.children.push(event);
           this.currentChild = event;
           break;
+
+        default:
+          break;
+      }
+    }
+
+    if (this.currentPath == 'user/secrets/') {
+      switch (true) {
+        case event.includes('secret1'):
+          this.children.push(event);
+          this.currentChild = event;
+          break;
+
         default:
           break;
       }

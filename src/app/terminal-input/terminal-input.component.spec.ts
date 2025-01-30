@@ -8,10 +8,9 @@ describe('TerminalInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TerminalInputComponent]
-    })
-    .compileComponents();
-    
+      imports: [TerminalInputComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TerminalInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

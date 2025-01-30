@@ -12,10 +12,12 @@ export class TerminalInputComponent {
   @Output() notACommand = new EventEmitter<string>();
   @Output() cdCommand = new EventEmitter<string>();
   @Output() sendInputStringFromCommand = new EventEmitter<string>();
+
   //sudo su -
   //man -
   //htop ?
   //man chown
+
   userCommandsList: string[] = [];
   indexCommand: number = -1;
   resetCommands: boolean = false;
@@ -23,8 +25,6 @@ export class TerminalInputComponent {
   commandPossibilities: string[] = [
     'help',
     'git',
-    'cl',
-    'clear',
     'ls',
     'list',
     'ls -a',
@@ -39,12 +39,12 @@ export class TerminalInputComponent {
     'cd ./projects',
     'cd projects',
     './projects',
-    'cd ./about',
-    'cd about',
-    './about',
-    'cd ./secret',
-    'cd secret',
-    './secret',
+    'cd ./info',
+    'cd info',
+    './info',
+    'cd ./secrets',
+    'cd secrets',
+    './secrets',
     'cd ./portfolio_v1',
     'cd portfolio_v1',
     './portfolio_v1',
@@ -57,6 +57,7 @@ export class TerminalInputComponent {
     var inputFromUser: string = '';
 
     if (event.key == 'Enter') {
+      inputCommand.focus();
       this.indexCommand = -1;
       inputFromUser = inputCommand.value.toLowerCase().trim();
       inputFromUser = this.trimIfNecessary(inputFromUser);
@@ -68,6 +69,11 @@ export class TerminalInputComponent {
 
         case this.checkCdCommands(inputFromUser):
           this.cdCommand.emit(inputCommand.value);
+          break;
+
+        case 'cl':
+        case 'clear':
+          this.clearCommand.emit();
           break;
 
         default:

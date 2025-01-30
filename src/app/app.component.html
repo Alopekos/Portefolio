@@ -33,7 +33,10 @@
             child == './projects' ||
             child == 'cd projects' ||
             child == 'ls -a' ||
-            child == 'list -a';
+            child == 'list -a' ||
+            child == 'cd ./secrets' ||
+            child == './secrets' ||
+            child == 'cd secrets';
           else three
         "
       >
@@ -51,7 +54,14 @@
     </ng-template>
 
     <ng-template #four>
-      <div *ngIf="child == 'portfolio_v1'; else five">
+      <div
+        *ngIf="
+          child == './portfolio_v1' ||
+            child == 'cd ./portfolio_v1' ||
+            child == 'cd portfolio_v1';
+          else five
+        "
+      >
         <app-portfolio-v1></app-portfolio-v1>
       </div>
     </ng-template>
@@ -59,11 +69,11 @@
     <ng-template #five>
       <div
         *ngIf="
-          child == './about' || child == 'cd ./about' || child == 'cd about';
+          child == './info' || child == 'cd ./info' || child == 'cd info';
           else six
         "
       >
-        <app-about></app-about>
+        <app-info></app-info>
       </div>
     </ng-template>
 

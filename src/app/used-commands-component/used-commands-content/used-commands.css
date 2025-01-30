@@ -109,6 +109,8 @@ li {
 
 .sleepy-fox {
   position: absolute;
+  filter: grayscale(0.5) brightness(2);
+  mix-blend-mode: multiply;
   top: 24%;
   left: 53%;
   transform: translateX(-50%);
@@ -125,16 +127,16 @@ li {
 }
 
 .left-container:hover .project-img {
-  opacity: 0.6;
+  opacity: 1;
 }
 .right-container {
   max-width: 50svw;
   padding-left: 5svw;
 }
 
-/* About */
+/* info */
 
-.container-about {
+.container-info {
   padding-top: 2svh;
   display: flex;
   justify-content: flex-start;
@@ -145,12 +147,12 @@ li {
   background-position: center;
 }
 
-.right-container-about {
+.right-container-info {
   max-width: 40svw;
   padding-right: 5svw;
 }
 
-.left-container-about {
+.left-container-info {
   position: relative;
   max-width: 50svw;
 }
