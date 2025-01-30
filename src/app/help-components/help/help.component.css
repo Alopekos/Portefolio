@@ -1,9 +1,9 @@
 p {
   font-family: "Ubuntu Mono", serif;
-  color: #b1b1b1;
+  color: var(--g-white-dark);
   font-size: 1em;
 }
 
 .command {
-  color: #269097;
+  color: var(--g-cyan);
 }

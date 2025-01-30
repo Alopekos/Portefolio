@@ -1,6 +1,6 @@
 input,
 p {
-  color: #b1b1b1;
+  color: var(--g-white-dark);
   font-size: 1em;
   font-family: "Ubuntu Mono", serif;
   display: flex;
@@ -16,15 +16,15 @@ p {
 }
 
 .user {
-  color: #4e8864;
+  color: var(--g-green);
 }
 
 .neofetch-color {
-  color: #77c7db;
+  color: var(--g-cyan);
 }
 
 .filepath {
-  color: #5e78c0;
+  color: var(--g-blue);
 }
 
 .neofetch-container {
@@ -33,15 +33,15 @@ p {
 }
 
 .ascii-art {
-  color: #c5b051;
+  color: var(--g-yellow);
 }
 
 .ascii-white {
-  color: #ecebeb;
+  color: var(--g-white);
 }
 
 .ascii-black {
-  color: #111111;
+  color: var(--g-black-dark);
 }
 
 .neofetch-color-rect {
@@ -62,70 +62,6 @@ p {
 .rect {
   display: flex;
   width: 12%;
-}
-
-.bgd-black {
-  background-color: rgb(3, 3, 3);
-}
-
-.bgd-red {
-  background-color: #aa1616;
-}
-
-.bgd-green {
-  background-color: #4e8864;
-}
-
-.bgd-yellow {
-  background-color: #9b8a3e;
-}
-
-.bgd-blue {
-  background-color: #3b34a0;
-}
-
-.bgd-purple {
-  background-color: #8f3497;
-}
-
-.bgd-cyan {
-  background-color: #269097;
-}
-
-.bgd-white {
-  background-color: #b1b1b1;
-}
-
-.bg-black {
-  background-color: rgb(32, 32, 32);
-}
-
-.bg-red {
-  background-color: #e44343;
-}
-
-.bg-green {
-  background-color: #6caf85;
-}
-
-.bg-yellow {
-  background-color: #c5b051;
-}
-
-.bg-blue {
-  background-color: #675eee;
-}
-
-.bg-purple {
-  background-color: #bf53c9;
-}
-
-.bg-cyan {
-  background-color: #77c7db;
-}
-
-.bg-white {
-  background-color: #ecebeb;
 }
 
 .socials {

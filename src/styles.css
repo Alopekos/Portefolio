@@ -1,7 +1,26 @@
+:root {
+  --g-black-dark: #030303;
+  --g-black: #202020;
+  --g-red-dark: #aa1616;
+  --g-red: #e44343;
+  --g-green-dark:#4e8864;
+  --g-green: #6caf85;
+  --g-yellow-dark:#9b8a3e;
+  --g-yellow: #c5b051;
+  --g-blue-dark:#3b34a0;
+  --g-blue: #675eee;
+  --g-purple-dark:#8f3497;
+  --g-purple:#bf53c9;
+  --g-cyan-dark: #269097;
+  --g-cyan: #77c7db;
+  --g-white-dark: #b1b1b1;
+  --g-white:#ecebeb;
+}
+
 html {
   height: 100%;
   width: 100%;
-  background-color: #1b1b1b;
+  background-color: var(--g-black);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,4 +36,152 @@ body {
 
 p {
   margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.bgd-black {
+  background-color: var(--g-black-dark);
+}
+
+.bgd-red {
+  background-color: var(--g-red-dark);
+}
+
+.bgd-green {
+  background-color: var(--g-green-dark);
+}
+
+.bgd-yellow {
+  background-color: var(--g-yellow-dark);
+}
+
+.bgd-blue {
+  background-color: var(--g-blue-dark);
+}
+
+.bgd-purple {
+  background-color: var(--g-purple-dark);
+}
+
+.bgd-cyan {
+  background-color: var(--g-cyan-dark);
+}
+
+.bgd-white {
+  background-color: var(--g-white-dark);
+}
+
+.bg-black {
+  background-color: var(--g-black);
+}
+
+.bg-red {
+  background-color: var(--g-red);
+}
+
+.bg-green {
+  background-color: var(--g-green);
+}
+
+.bg-yellow {
+  background-color: var(--g-yellow);
+}
+
+.bg-blue {
+  background-color: var(--g-blue);
+}
+
+.bg-purple {
+  background-color: var(--g-purple);
+}
+
+.bg-cyan {
+  background-color: var(--g-cyan);
+}
+
+.bg-white {
+  background-color: var(--g-white);
+}
+
+.txt-black-dark {
+  color: var(--g-black-dark);
+}
+
+.txt-red-dark {
+  color: var(--g-red-dark);
+}
+
+.txt-green-dark {
+  color: var(--g-green-dark);
+}
+
+.txt-yellow-dark {
+  color: var(--g-yellow-dark);
+}
+
+.txt-blue-dark {
+  color: var(--g-blue-dark);
+}
+
+.txt-purple-dark {
+  color: var(--g-purple-dark);
+}
+
+.txt-cyan-dark {
+  color: var(--g-cyan-dark);
+}
+
+.txt-white-dark {
+  color: var(--g-white-dark);
+}
+
+.txt-black {
+  color: var(--g-black);
+}
+
+.txt-red {
+  color: var(--g-red);
+}
+
+.txt-green {
+  color: var(--g-green);
+}
+
+.txt-yellow {
+  color: var(--g-yellow);
+}
+
+.txt-blue {
+  color: var(--g-blue);
+}
+
+.txt-purple {
+  color: var(--g-purple);
+}
+
+.txt-cyan {
+  color: var(--g-cyan);
+}
+
+.txt-white {
+  color: var(--g-white);
+}
+
+.txt-rainbow {
+  display: inline-block;
+  background-image: linear-gradient(
+    to left,
+    rgb(199, 133, 199),
+    rgb(110, 83, 129),
+    rgb(99, 99, 192),
+    rgb(38, 155, 38),
+    rgb(216, 216, 70),
+    rgb(212, 160, 64),
+    rgb(201, 68, 68)
+  );
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Ubuntu Mono", serif;
 }

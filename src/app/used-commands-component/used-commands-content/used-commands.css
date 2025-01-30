@@ -38,7 +38,9 @@ li {
 
 /* Presentation */
 
-.portfolio-presentation {
+.ascii-computer {
+  font-size: 8px;
+  color: aliceblue;
 }
 
 .portfolio-presentation > a {
@@ -58,26 +60,17 @@ li {
 
 .portfolio-presentation > a > p {
   padding-top: 0 !important;
-  text-align: center;
 }
-
+.right-container p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 15em; /* Adjust based on font size (5 lines x 1.5em line-height) */
+  line-height: 1.5em; /* Ensure consistent line spacing */
+}
 .text-container {
   display: inline-block;
-  font-size: 30px;
+  font-size: 1em;
   font-family: "Ubuntu Mono", serif;
-  background-image: linear-gradient(
-    to left,
-    rgb(199, 133, 199),
-    rgb(110, 83, 129),
-    rgb(99, 99, 192),
-    rgb(38, 155, 38),
-    rgb(216, 216, 70),
-    rgb(212, 160, 64),
-    rgb(201, 68, 68)
-  );
-  background-clip: inherit;
-  -webkit-background-clip: text;
-  color: transparent;
   visibility: hidden;
 }
 
@@ -105,29 +98,36 @@ li {
 }
 .container {
   display: flex;
-  align-items: top;
-  justify-content: space-between;
-  position: relative;
-  max-height: 50svh;
+  justify-content:flex-start;
+  gap: 5svh;
+  padding-left: 5svw;
+  max-height: 35svh;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
 }
 
-.project-img {
-  height: 30svh;
-  z-index: 2;
+.sleepy-fox {
+  position: absolute;
+  top: 24%; 
+  left: 53%; 
+  transform: translateX(-50%); 
+  z-index: 10; 
   border-radius: 5px;
+  opacity: 0; 
+  transition: opacity 1s ease-in-out;
+  pointer-events: none; 
 }
 
 .left-container {
-  width: 50svw;
+  position: relative; 
+  max-width: 30svw;
+}
+.left-container:hover .project-img {
+  opacity: .6; 
 }
 .right-container {
-  width: 30svw;
+  max-width: 50svw;
+    padding-left: 5svw;
 }
 
-.sleepy-fox {
-  position: relative;
-  top: 1.7svh;
-}

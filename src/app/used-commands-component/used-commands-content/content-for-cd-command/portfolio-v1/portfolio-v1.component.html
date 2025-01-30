@@ -1,37 +1,58 @@
 <div class="container-terminal">
-  <p>My first ever project in JavaScript</p>
-
-  <img
-    class="sleepy-fox"
+  <br>
+</div>
+<div class="container-terminal">
+  <p>[<span class="txt-rainbow">Here is a presentation of my portfolio</span>]:</p>
+  <br />
+  <div class="container">
+    <div class="left-container">
+      <pre class="ascii-computer" >
+            .,,uod8B8bou,,.
+        ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
+   ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
+   !...:!TVBBBRPFT||||||||||!!^^""'   ||||
+   !.......:!?|||||!!^^""'            ||||
+   !.........||||                     ||||
+   !.........||||  ##                 ||||
+   !.........||||                     ||||
+   !.........||||                     ||||
+   !.........||||                     ||||
+   !.........||||                     ||||
+   `.........||||                    ,||||
+    .;.......||||               _.-!!|||||
+.,uodWBBBBb.....||||       _.-!!|||||||||!:'
+!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb
+!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::
+!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::
+!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^"`;:::
+!........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;
+`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.
+`..........:::::::::::::::::::::::;iof688888888888b.
+`........::::::::::::::::;iof688888888888888888888b.
+`......:::::::::;iof688888888888888888888888888888b.
+  `....:::;iof688888888888888888888888888888888899f
+    `..::!8888888888888888888888888888888899fT|!^"'
+      `' !!988888888888888888888888899fT|!^"'
+          `!!8888888888888888899fT|!^"'
+            `!988888888899fT|!^"'
+              `!9899fT|!^"'
+                `!^"'
+      </pre>
+    <img
+    class="sleepy-fox project-img"
     [ngSrc]="'assets/SleepyFox.png'"
     alt="SleepyFox"
     width="100"
     height="50"
   />
-</div>
-<div class="container-terminal">
-  <p>[Here is a presentation of my portfolio]:</p>
-  <br />
-  <div class="container">
-    <div class="left-container">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla
-        gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros
-        bibendum elit, nec luctus magna felis sollicitudin mauris.
-      </p>
     </div>
     <div class="right-container">
-      <img
-        class="project-img"
-        src="assets/Projet1-Portefolio.png"
-        alt="project-picture"
-      />
+      <p>
+        This is my old portfolio project [<a href="https://github.com/Alopekos/Portefolio" class="txt-green">Git repository</a>]. Altough it was made in pure <span class="txt-yellow">JavaScript</span> and took me a bunch of time to make, I'm quite fond of it. In it, I use the 
+        canvas feature of HTML coupled with some JavaScript to include a little platformer game with a fox (note: the fox has the zoomies if your 
+        monitor's refresh rate is bigger than 60hz). <br><br>
+        This was my first code project too and it made me want to pursue a career in which I design and build software that I find cool.
+      </p>
     </div>
   </div>
 </div>
@@ -41,13 +62,14 @@
     (mouseenter)="onHover()"
     (mouseleave)="onLeave()"
   >
+  <p style="overflow: hidden;">===============================================================================================================================================================================</p>
     <a href="https://alopekos.github.io/" target="_blank">
-      <p style="padding-top: 1svh">
+      <p class="txt-white-dark" style="text-wrap-mode: nowrap;">
         Go and have a look if you'd like by clicking this link
       </p>
       <span class="arrow">|</span>
 
-      <div class="text-container" [class.typing]="isHovered">
+      <div class="text-container txt-white-dark" [class.typing]="isHovered">
         <span
           *ngFor="let letter of textArray; let i = index"
           class="letter"
@@ -57,5 +79,7 @@
         </span>
       </div>
     </a>
+    <p style="overflow: hidden;">===============================================================================================================================================================================</p>
+
   </div>
 </div>
