@@ -1,0 +1,97 @@
+<div class="container-terminal">
+  <br />
+</div>
+<div class="container-terminal">
+  <p>[<span class="txt-rainbow">Signature checker</span>]:</p>
+  <br />
+  <div class="container">
+    <div class="left-container">
+      <pre class="ascii-computer c-logo-ascii"><span class="txt-blue">
+                                             *+==+*                                                                                       
+                                          *+========+*                                                                                 
+                                      *+===============++*                                                                          
+                                   *++======================+*                                                                  
+                               ++==============================+*                                                             
+                           *+===============-:....:-==============+*                                                       
+                        ++============-.                .-============++                                              
+                      +=============-.                      .-=============*                                          
+                    +============:                            :========*####                                         
+                    +==========-                               .===+########                                          
+                    +=========:             .:----:.            -###########                                         
+                    +========:           :============:     .=##############                                        
+                    +=======:          :================.:*#################                                          
+                    +=======          :==============+######################                                         
+                    +======-         .============*#########################                                         
+                    +======-         .========+#############################                                        
+                    +=======          =====*#%%%%%##########################                                        
+                    +=======.         :+#%%%%%%%%%%%%%######################                                          
+                    +=======-          :%%%%%%%%%%%%%%%%:.=#################                                        
+                    +========.           -#%%%%%%%%%%#-      :*#############                                        
+                    +========*:              -+++=-             .+##########                                     
+                    +====+#%%%%+                                *%%%%#######                                         
+                    +=*#%%%%%%%%%-                            -%%%%%%%%%####                                        
+                     %%%%%%%%%%%%%%=                        =%%%%%%%%%%%%%%                                             
+                        %%%%%%%%%%%%%#-                 .=%%%%%%%%%%%%%%                                                   
+                          %%%%%%%%%%%%%%%*+--::::-=+#%%%%%%%%%%%%%%%                                                          
+                              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                               
+                                  %%%%%%%%%%%%%%%%%%%%%%%%%%                                                                         
+                                     %%%%%%%%%%%%%%%%%%%%                                                                               
+                                         %%%%%%%%%%%%                                            
+                                            %%%%%%                                             
+                    </span></pre>
+      <img
+        class="signature-project-img project-img"
+        src="assets/Signature.png"
+        alt="signature-program"
+        style="border-radius: 70px"
+      />
+    </div>
+    <div class="right-container">
+      <p>
+        This is a collaboration project with my colleague [<a
+          href="https://github.com/While1Win"
+          class="txt-red"
+          >&commat;Yaman</a
+        >], we created a program that checks if someone has signed in based on
+        the current time and day. It's a simple but functional tool in the
+        [<span class="txt-yellow">C language</span>] to help manage attendance
+        or check-ins. The program uses the system’s time and date functions.
+        <br /><br />
+        I really enjoyed working on this project as it allowed me to get more
+        comfortable with collaborating and the C language. <br />
+        This project helped me with my understanding of C, and solidified my
+        interest in learning more low-level programming concepts.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-terminal">
+  <div
+    class="portfolio-presentation"
+    (mouseenter)="onHover()"
+    (mouseleave)="onLeave()"
+  >
+    <p style="overflow: hidden">
+      ===============================================================================================================================================================================
+    </p>
+    <a href="https://github.com/La3laps/Breaktime_Checker_In_C" target="_blank">
+      <p class="txt-white-dark" style="text-wrap-mode: nowrap">
+        Go and have a look if you'd like by clicking this link
+      </p>
+      <span class="arrow">|</span>
+
+      <div class="text-container txt-white-dark" [class.typing]="isHovered">
+        <span
+          *ngFor="let letter of textArray; let i = index"
+          class="letter"
+          [style.animationDelay]="i * 0.05 + 's'"
+        >
+          {{ letter }}
+        </span>
+      </div>
+    </a>
+    <p style="overflow: hidden">
+      ===============================================================================================================================================================================
+    </p>
+  </div>
+</div>

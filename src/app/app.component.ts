@@ -15,6 +15,7 @@ import { InfoComponent } from './used-commands-component/used-commands-content/c
 import { GitComponent } from './used-commands-component/used-commands-content/git/git.component';
 import { AboutComponent } from './used-commands-component/used-commands-content/content-for-cat-command/about/about.component';
 import { RpgMapComponent } from './used-commands-component/used-commands-content/content-for-cd-command/rpg-map/rpg-map.component';
+import { SignatureCheckerComponent } from "./used-commands-component/used-commands-content/content-for-cd-command/signature-checker/signature-checker.component";
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,8 @@ import { RpgMapComponent } from './used-commands-component/used-commands-content
     GitComponent,
     AboutComponent,
     RpgMapComponent,
-  ],
+    SignatureCheckerComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -115,12 +117,9 @@ export class AppComponent {
 
     if (this.currentPath == 'user/projects/') {
       switch (true) {
-        case event.includes('portfolio_v1'):
-          this.children.push(event);
-          this.currentChild = event;
-          break;
-
         case event.includes('rpg_map'):
+        case event.includes('portfolio_v1'):
+        case event.includes('signature_checker'):
           this.children.push(event);
           this.currentChild = event;
           break;

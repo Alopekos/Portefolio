@@ -109,6 +109,19 @@
     </ng-template>
 
     <ng-template #nine>
+      <div
+        *ngIf="
+          child == './signature_checker' ||
+            child == 'cd ./signature_checker' ||
+            child == 'cd signature_checker';
+          else ten
+        "
+      >
+        <app-signature-checker></app-signature-checker>
+      </div>
+    </ng-template>
+
+    <ng-template #ten>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>
