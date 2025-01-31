@@ -1,4 +1,10 @@
-import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Output,
+  Input,
+} from '@angular/core';
 
 @Component({
   selector: 'terminal-input',
@@ -8,7 +14,9 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
   styleUrl: './terminal-input.component.css',
 })
 export class TerminalInputComponent {
-  @Output() clearCommand = new EventEmitter<void>();
+  @Input() currentPath: string = '';
+  @Output()
+  clearCommand = new EventEmitter<void>();
   @Output() notACommand = new EventEmitter<string>();
   @Output() directionCommand = new EventEmitter<string>();
   @Output() sendInputStringFromCommand = new EventEmitter<string>();
@@ -31,34 +39,31 @@ export class TerminalInputComponent {
     'list -a',
     'cd ~/',
     '~/',
-    'neo',
+    'cd ..',
     'neofetch',
   ];
 
   directionCommandPossibilities: string[] = [
     'cd ./projects',
     'cd projects',
-    './projects',
-    'cd ./info',
-    'cd info',
     './info',
+    'info',
     'cat about.txt',
     'cat ./about.txt',
     'cd ./secrets',
     'cd secrets',
-    './secrets',
-    'cd ./portfolio_v1',
-    'cd portfolio_v1',
     './portfolio_v1',
-    'cd ./rpg_map',
-    'cd rpg_map',
+    'portfolio_v1',
     './rpg_map',
-    'cd ./signature_checker',
-    'cd signature_checker',
+    'rpg_map',
     './signature_checker',
+    'signature_checker',
+    'secret1',
+    './secret1',
+    'cat secret2',
+    'cat ./secret2',
     './.27061987',
-    'cd ./.27061987',
-    'cd .27061987',
+    '.27061987',
   ];
 
   public tryCommand(
@@ -126,32 +131,52 @@ export class TerminalInputComponent {
     return '';
   }
 
+  // Get the previous commands from the user or autocomplete
   addCommandToList(event: string) {
     if (event != '') {
       this.userCommandsList.push(event);
     }
   }
-
   @HostListener('document:keydown', ['$event'])
-  arrowUp(event: KeyboardEvent): void {
+  arrowUpOrTabPressed(event: KeyboardEvent): void {
     const inputElement = document.querySelector(
       'input[name="user-input"]'
     ) as HTMLInputElement;
 
     if (event.key === 'ArrowUp') {
-      this.indexCommand++;
-
-      if (
-        this.indexCommand >= 0 &&
-        this.indexCommand < this.userCommandsList.length
-      ) {
-        this.userCommandsList.reverse();
-        inputElement.value = this.userCommandsList[this.indexCommand];
-        this.userCommandsList.reverse();
-      }
+      this.lookForLastCommandUsed(inputElement, event);
     } else if (event.key == 'ArrowDown') {
       this.indexCommand = -1;
       inputElement.value = '';
+    } else if (event.key == 'Tab') {
+      event.preventDefault();
+      this.autocompleteCommand(inputElement);
+    }
+  }
+
+  lookForLastCommandUsed(inputElement: HTMLInputElement, event: KeyboardEvent) {
+    this.indexCommand++;
+
+    if (
+      this.indexCommand >= 0 &&
+      this.indexCommand < this.userCommandsList.length
+    ) {
+      this.userCommandsList.reverse();
+      inputElement.value = this.userCommandsList[this.indexCommand];
+      this.userCommandsList.reverse();
+    }
+  }
+
+  autocompleteCommand(inputElement: HTMLInputElement) {
+    const allCommands: string[] = this.commandPossibilities.concat(
+      this.directionCommandPossibilities
+    );
+    const filteredCommands = allCommands.filter((item) =>
+      item.toLowerCase().startsWith(inputElement.value)
+    );
+    console.log(filteredCommands);
+    if (filteredCommands.length == 1) {
+      inputElement.value = filteredCommands[0];
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-used-commands',
@@ -9,4 +9,11 @@ import { Component, Input } from '@angular/core';
 })
 export class UsedCommandsComponent {
   @Input() name!: string;
+  @Input() currentPath!: string;
+
+  shownPath: string = '';
+
+  ngOnInit() {
+    this.shownPath = this.currentPath;
+  }
 }

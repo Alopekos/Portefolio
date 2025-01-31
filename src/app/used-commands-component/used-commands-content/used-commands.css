@@ -4,6 +4,12 @@ p {
   font-size: 1em;
 }
 
+h1 {
+  font-family: "Ubuntu Mono", serif;
+  color: #b1b1b1;
+  font-size: 1.4em;
+}
+
 .container-terminal {
   width: auto;
   max-height: 50svh;

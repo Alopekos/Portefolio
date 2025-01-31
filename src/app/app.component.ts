@@ -15,7 +15,8 @@ import { InfoComponent } from './used-commands-component/used-commands-content/c
 import { GitComponent } from './used-commands-component/used-commands-content/git/git.component';
 import { AboutComponent } from './used-commands-component/used-commands-content/content-for-cat-command/about/about.component';
 import { RpgMapComponent } from './used-commands-component/used-commands-content/content-for-cd-command/rpg-map/rpg-map.component';
-import { SignatureCheckerComponent } from "./used-commands-component/used-commands-content/content-for-cd-command/signature-checker/signature-checker.component";
+import { SignatureCheckerComponent } from './used-commands-component/used-commands-content/content-for-cd-command/signature-checker/signature-checker.component';
+import { SecretOneComponent } from './used-commands-component/used-commands-content/secret-files/secret-one/secret-one.component';
 
 @Component({
   selector: 'app-root',
@@ -37,8 +38,9 @@ import { SignatureCheckerComponent } from "./used-commands-component/used-comman
     GitComponent,
     AboutComponent,
     RpgMapComponent,
-    SignatureCheckerComponent
-],
+    SignatureCheckerComponent,
+    SecretOneComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -58,7 +60,7 @@ export class AppComponent {
   public showLoadingAnim: boolean = true;
   public isNotCleared: boolean = true;
 
-  @Input() currentPath: string = 'user/';
+  @Input() currentPath: string = '';
 
   onAnimationCompleted(): void {
     this.showLoadingAnim = false;
@@ -80,16 +82,17 @@ export class AppComponent {
   }
 
   checkForHomeCommand(event: string) {
-    if (event == 'cd ~/' || event == '~/') this.currentPath = 'user/';
+    if (event == 'cd ~/' || event == '~/' || event == 'cd ..')
+      this.currentPath = '';
   }
 
   onDirectionCommand(event: string): void {
-    if (this.currentPath == 'user/') {
+    if (this.currentPath == '') {
       switch (true) {
         case event.includes('projects'):
-          this.currentPath = 'user/projects/';
           this.children.push(event);
           this.currentChild = event;
+          this.currentPath = 'projects/';
           break;
 
         case event.includes('about'):
@@ -99,9 +102,9 @@ export class AppComponent {
           break;
 
         case event.includes('secrets'):
-          this.currentPath = 'user/secrets/';
           this.children.push(event);
           this.currentChild = event;
+          this.currentPath = 'secrets/';
           break;
 
         case event.includes('.27061987'):
@@ -115,7 +118,7 @@ export class AppComponent {
       }
     }
 
-    if (this.currentPath == 'user/projects/') {
+    if (this.currentPath == 'projects/') {
       switch (true) {
         case event.includes('rpg_map'):
         case event.includes('portfolio_v1'):
@@ -129,9 +132,10 @@ export class AppComponent {
       }
     }
 
-    if (this.currentPath == 'user/secrets/') {
+    if (this.currentPath == 'secrets/') {
       switch (true) {
         case event.includes('secret1'):
+        case event.includes('secret2'):
           this.children.push(event);
           this.currentChild = event;
           break;

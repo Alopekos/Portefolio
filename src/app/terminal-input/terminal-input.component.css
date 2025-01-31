@@ -12,7 +12,7 @@ p {
 }
 
 .user {
-  color: #4e8864;
+  color: var(--g-yellow-dark);
 }
 
 .filepath {
@@ -29,5 +29,5 @@ input {
   border: none;
   outline: none;
   height: 10svh;
-  width: 100%;
+  width: 80%;
 }

@@ -15,7 +15,10 @@
 
   <!-- List of used commands -->
   <div *ngFor="let child of children">
-    <app-used-commands [name]="child"></app-used-commands>
+    <app-used-commands
+      [name]="child"
+      [currentPath]="currentPath"
+    ></app-used-commands>
 
     <div *ngIf="child == 'help'; else two">
       <app-help-command></app-help-command>
@@ -28,14 +31,13 @@
             child == 'list' ||
             child == '~/' ||
             child == 'cd ~/' ||
+            child == 'cd ..' ||
             child == 'cd' ||
             child == 'cd ./projects' ||
-            child == './projects' ||
             child == 'cd projects' ||
             child == 'ls -a' ||
             child == 'list -a' ||
             child == 'cd ./secrets' ||
-            child == './secrets' ||
             child == 'cd secrets';
           else three
         "
@@ -48,31 +50,21 @@
     </ng-template>
 
     <ng-template #three>
-      <div *ngIf="child == 'neofetch' || child == 'neo'; else four">
+      <div *ngIf="child == 'neofetch'; else four">
         <app-neofetch-command></app-neofetch-command>
       </div>
     </ng-template>
 
     <ng-template #four>
       <div
-        *ngIf="
-          child == './portfolio_v1' ||
-            child == 'cd ./portfolio_v1' ||
-            child == 'cd portfolio_v1';
-          else five
-        "
+        *ngIf="child == './portfolio_v1' || child == 'portfolio_v1'; else five"
       >
         <app-portfolio-v1></app-portfolio-v1>
       </div>
     </ng-template>
 
     <ng-template #five>
-      <div
-        *ngIf="
-          child == './info' || child == 'cd ./info' || child == 'cd info';
-          else six
-        "
-      >
+      <div *ngIf="child == './info' || child == 'info'; else six">
         <app-info></app-info>
       </div>
     </ng-template>
@@ -96,14 +88,7 @@
     </ng-template>
 
     <ng-template #eight>
-      <div
-        *ngIf="
-          child == './rpg_map' ||
-            child == 'cd ./rpg_map' ||
-            child == 'cd rpg_map';
-          else nine
-        "
-      >
+      <div *ngIf="child == './rpg_map' || child == 'rpg_map'; else nine">
         <app-rpg-map></app-rpg-map>
       </div>
     </ng-template>
@@ -111,9 +96,7 @@
     <ng-template #nine>
       <div
         *ngIf="
-          child == './signature_checker' ||
-            child == 'cd ./signature_checker' ||
-            child == 'cd signature_checker';
+          child == './signature_checker' || child == 'signature_checker';
           else ten
         "
       >
@@ -122,11 +105,18 @@
     </ng-template>
 
     <ng-template #ten>
+      <div *ngIf="child == './secret1' || child == 'secret1'; else eleven">
+        <app-secret-one></app-secret-one>
+      </div>
+    </ng-template>
+
+    <ng-template #eleven>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>
 
   <terminal-input
+    [currentPath]="currentPath"
     (clearCommand)="onClearCommand()"
     (directionCommand)="onDirectionCommand($event)"
     (notACommand)="onNotACommand($event)"

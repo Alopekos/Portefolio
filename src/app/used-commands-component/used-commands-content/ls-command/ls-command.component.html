@@ -1,9 +1,9 @@
 <div class="container-terminal">
-  <ul *ngIf="currentPathForSingleComponent == 'user/'">
+  <ul *ngIf="currentPathForSingleComponent == ''">
     <li>./<span class="txt-green">info</span></li>
-    <li>./<span class="txt-blue">projects</span></li>
-    <li>./<span class="txt-blue">secrets</span></li>
     <li>./<span class="txt-white">about.txt</span></li>
+    <li>./<span class="txt-blue">projects</span>/</li>
+    <li>./<span class="txt-blue">secrets</span>/</li>
     <div
       *ngIf="
         currentChildForSingleComponent == 'ls -a' ||
@@ -14,7 +14,7 @@
       <li>./<span class="txt-red">.27061987</span></li>
     </div>
   </ul>
-  <ul *ngIf="currentPathForSingleComponent == 'user/projects/'">
+  <ul *ngIf="currentPathForSingleComponent == 'projects/'">
     <li>./<span class="txt-green">portfolio_v1</span></li>
     <li>./<span class="txt-green">rpg_map</span></li>
     <li>./<span class="txt-green">signature_checker</span></li>
@@ -27,9 +27,16 @@
       <li>./<span class="txt-green">.game</span></li>
     </div>
   </ul>
-  <ul *ngIf="currentPathForSingleComponent == 'user/secrets/'">
+  <ul *ngIf="currentPathForSingleComponent == 'secrets/'">
     <li>./<span class="txt-green">secret1</span></li>
     <li>./<span class="txt-white">secret2.txt</span></li>
-    <li>./<span class="txt-white">secret3.txt</span></li>
+    <div
+      *ngIf="
+        currentChildForSingleComponent == 'ls -a' ||
+        currentChildForSingleComponent == 'list -a'
+      "
+    >
+      <li>./<span class="txt-white">.secret3.txt</span></li>
+    </div>
   </ul>
 </div>

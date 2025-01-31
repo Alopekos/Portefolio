@@ -13,7 +13,7 @@ p {
 }
 
 .user {
-  color: #4e8864;
+  color: var(--g-yellow-dark);
 }
 
 .filepath {
