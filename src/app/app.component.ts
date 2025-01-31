@@ -20,6 +20,7 @@ import { SecretOneComponent } from './used-commands-component/used-commands-cont
 import { SecretTwoComponent } from './used-commands-component/used-commands-content/secret-files/secret-two/secret-two.component';
 import { SecretThreeComponent } from './used-commands-component/used-commands-content/secret-files/secret-three/secret-three.component';
 import { HiddenHelpComponent } from './used-commands-component/used-commands-content/help-command/hidden-help/hidden-help.component';
+import { GameProjectComponent } from './used-commands-component/used-commands-content/content-for-cd-command/game-project/game-project.component';
 
 @Component({
   selector: 'app-root',
@@ -46,6 +47,7 @@ import { HiddenHelpComponent } from './used-commands-component/used-commands-con
     SecretTwoComponent,
     SecretThreeComponent,
     HiddenHelpComponent,
+    GameProjectComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -54,14 +56,6 @@ export class AppComponent {
   title: string = 'portefolio';
   children: string[] = [];
   currentChild: string = '';
-
-  // pathHierarchy = {
-  //   'user/': {
-  //     'projects/': ['project1', 'project2', 'project3'],
-  //     'info/': ['aboutme'],
-  //     'secret/': ['secret'],
-  //   },
-  // };
 
   public showLoadingAnim: boolean = true;
   public isNotCleared: boolean = true;
@@ -130,6 +124,7 @@ export class AppComponent {
         case event.includes('rpg_map'):
         case event.includes('portfolio_v1'):
         case event.includes('signature_checker'):
+        case event.includes('game'):
           this.children.push(event);
           this.currentChild = event;
           break;
@@ -152,7 +147,9 @@ export class AppComponent {
           break;
       }
     }
-    this.waitAndScroll();
+    if (event.includes('game')) {
+      this.waitAndScrollJustALittle();
+    } else this.waitAndScroll();
   }
 
   onGitEasterEgg() {
@@ -172,6 +169,15 @@ export class AppComponent {
     await this.wait(100);
     window.scrollTo({
       top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
+  }
+
+  async waitAndScrollJustALittle(): Promise<void> {
+    await this.wait(200);
+
+    window.scrollTo({
+      top: window.scrollY + window.innerHeight * 0.9,
       behavior: 'smooth',
     });
   }

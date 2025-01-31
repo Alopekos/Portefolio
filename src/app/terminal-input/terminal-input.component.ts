@@ -68,6 +68,8 @@ export class TerminalInputComponent {
     '.27061987',
     './.help',
     '.help',
+    '.game',
+    './.game',
   ];
 
   public tryCommand(
@@ -178,7 +180,6 @@ export class TerminalInputComponent {
     const filteredCommands = allCommands.filter((item) =>
       item.toLowerCase().startsWith(inputElement.value)
     );
-    console.log(filteredCommands);
     if (filteredCommands.length == 1) {
       inputElement.value = filteredCommands[0];
     }

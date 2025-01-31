@@ -206,3 +206,41 @@ pre {
   position: relative;
   max-width: 50svw;
 }
+
+/*Game presentation*/
+
+.video-container {
+  position: relative;
+  width: 50%;
+  height: 50svh;
+  overflow: hidden;
+}
+
+.responsive-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.container-for-embed-video {
+  display: flex;
+  margin-top: 3vh;
+  margin-bottom: 2svh;
+  align-items: center;
+  justify-content: center;
+}
+
+.audiotrack-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3svh;
+}
+
+.soundtrack-player {
+  border-radius: 15px;
+}

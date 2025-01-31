@@ -139,6 +139,12 @@
     </ng-template>
 
     <ng-template #fourteen>
+      <div *ngIf="child == './.game' || child == '.game'; else fifteen">
+        <app-game-project></app-game-project>
+      </div>
+    </ng-template>
+
+    <ng-template #fifteen>
       <app-not-a-command [currentChild]="currentChild"></app-not-a-command>
     </ng-template>
   </div>
