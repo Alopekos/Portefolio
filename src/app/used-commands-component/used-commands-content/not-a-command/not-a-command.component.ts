@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { HelpComponent } from '../help-command/help-components/help/help.component';
 
 @Component({
@@ -8,4 +9,11 @@ import { HelpComponent } from '../help-command/help-components/help/help.compone
   templateUrl: './not-a-command.component.html',
   styleUrl: '../used-commands.css',
 })
-export class NotACommandComponent {}
+export class NotACommandComponent {
+  @Input() currentChild!: string;
+  commandName: string = '';
+
+  ngOnInit() {
+    this.commandName = this.currentChild;
+  }
+}

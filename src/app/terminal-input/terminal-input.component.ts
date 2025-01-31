@@ -60,10 +60,14 @@ export class TerminalInputComponent {
     'signature_checker',
     'secret1',
     './secret1',
-    'cat secret2',
-    'cat ./secret2',
+    'cat secret2.txt',
+    'cat ./secret2.txt',
+    'cat .secret3.txt',
+    'cat ./.secret3.txt',
     './.27061987',
     '.27061987',
+    './.help',
+    '.help',
   ];
 
   public tryCommand(

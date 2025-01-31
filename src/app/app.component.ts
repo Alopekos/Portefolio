@@ -17,6 +17,9 @@ import { AboutComponent } from './used-commands-component/used-commands-content/
 import { RpgMapComponent } from './used-commands-component/used-commands-content/content-for-cd-command/rpg-map/rpg-map.component';
 import { SignatureCheckerComponent } from './used-commands-component/used-commands-content/content-for-cd-command/signature-checker/signature-checker.component';
 import { SecretOneComponent } from './used-commands-component/used-commands-content/secret-files/secret-one/secret-one.component';
+import { SecretTwoComponent } from './used-commands-component/used-commands-content/secret-files/secret-two/secret-two.component';
+import { SecretThreeComponent } from './used-commands-component/used-commands-content/secret-files/secret-three/secret-three.component';
+import { HiddenHelpComponent } from './used-commands-component/used-commands-content/help-command/hidden-help/hidden-help.component';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +43,9 @@ import { SecretOneComponent } from './used-commands-component/used-commands-cont
     RpgMapComponent,
     SignatureCheckerComponent,
     SecretOneComponent,
+    SecretTwoComponent,
+    SecretThreeComponent,
+    HiddenHelpComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -97,6 +103,7 @@ export class AppComponent {
 
         case event.includes('about'):
         case event.includes('info'):
+        case event.includes('.help'):
           this.children.push(event);
           this.currentChild = event;
           break;
@@ -136,6 +143,7 @@ export class AppComponent {
       switch (true) {
         case event.includes('secret1'):
         case event.includes('secret2'):
+        case event.includes('secret3'):
           this.children.push(event);
           this.currentChild = event;
           break;

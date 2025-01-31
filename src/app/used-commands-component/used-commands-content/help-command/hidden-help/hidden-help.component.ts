@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-secret-two',
+  selector: 'app-hidden-help',
   standalone: true,
   imports: [],
-  templateUrl: './secret-two.component.html',
+  templateUrl: './hidden-help.component.html',
   styleUrl: '../../used-commands.css',
 })
-export class SecretTwoComponent {}
+export class HiddenHelpComponent {}

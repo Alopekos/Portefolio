@@ -111,7 +111,35 @@
     </ng-template>
 
     <ng-template #eleven>
-      <app-not-a-command></app-not-a-command>
+      <div
+        *ngIf="
+          child == 'cat ./secret2.txt' || child == 'cat secret2.txt';
+          else twelve
+        "
+      >
+        <app-secret-two></app-secret-two>
+      </div>
+    </ng-template>
+
+    <ng-template #twelve>
+      <div
+        *ngIf="
+          child == 'cat ./.secret3.txt' || child == 'cat .secret3.txt';
+          else thirteen
+        "
+      >
+        <app-secret-three></app-secret-three>
+      </div>
+    </ng-template>
+
+    <ng-template #thirteen>
+      <div *ngIf="child == './.help' || child == '.help'; else fourteen">
+        <app-hidden-help></app-hidden-help>
+      </div>
+    </ng-template>
+
+    <ng-template #fourteen>
+      <app-not-a-command [currentChild]="currentChild"></app-not-a-command>
     </ng-template>
   </div>
 
