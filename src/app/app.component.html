@@ -84,15 +84,41 @@
     </ng-template>
 
     <ng-template #seven>
+      <div
+        *ngIf="
+          child == 'cat ./about.txt' || child == 'cat about.txt';
+          else eight
+        "
+      >
+        <app-about></app-about>
+      </div>
+      >
+    </ng-template>
+
+    <ng-template #eight>
+      <div
+        *ngIf="
+          child == './rpg_map' ||
+            child == 'cd ./rpg_map' ||
+            child == 'cd rpg_map';
+          else nine
+        "
+      >
+        <app-rpg-map></app-rpg-map>
+      </div>
+    </ng-template>
+
+    <ng-template #nine>
       <app-not-a-command></app-not-a-command>
     </ng-template>
   </div>
 
   <terminal-input
     (clearCommand)="onClearCommand()"
-    (cdCommand)="onCdCommand($event)"
+    (directionCommand)="onDirectionCommand($event)"
     (notACommand)="onNotACommand($event)"
     (sendInputStringFromCommand)="onStringReceivedFromCommand($event)"
+    (gitEasterEgg)="onGitEasterEgg()"
   ></terminal-input>
 </div>
 

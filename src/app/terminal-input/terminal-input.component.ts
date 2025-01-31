@@ -10,8 +10,9 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 export class TerminalInputComponent {
   @Output() clearCommand = new EventEmitter<void>();
   @Output() notACommand = new EventEmitter<string>();
-  @Output() cdCommand = new EventEmitter<string>();
+  @Output() directionCommand = new EventEmitter<string>();
   @Output() sendInputStringFromCommand = new EventEmitter<string>();
+  @Output() gitEasterEgg = new EventEmitter<void>();
 
   //sudo su -
   //man -
@@ -24,7 +25,6 @@ export class TerminalInputComponent {
 
   commandPossibilities: string[] = [
     'help',
-    'git',
     'ls',
     'list',
     'ls -a',
@@ -35,19 +35,27 @@ export class TerminalInputComponent {
     'neofetch',
   ];
 
-  cdCommandPossibilities: string[] = [
+  directionCommandPossibilities: string[] = [
     'cd ./projects',
     'cd projects',
     './projects',
     'cd ./info',
     'cd info',
     './info',
+    'cat about.txt',
+    'cat ./about.txt',
     'cd ./secrets',
     'cd secrets',
     './secrets',
     'cd ./portfolio_v1',
     'cd portfolio_v1',
     './portfolio_v1',
+    'cd ./rpg_map',
+    'cd rpg_map',
+    './rpg_map',
+    './.27061987',
+    'cd ./.27061987',
+    'cd .27061987',
   ];
 
   public tryCommand(
@@ -57,18 +65,21 @@ export class TerminalInputComponent {
     var inputFromUser: string = '';
 
     if (event.key == 'Enter') {
-      inputCommand.focus();
       this.indexCommand = -1;
       inputFromUser = inputCommand.value.toLowerCase().trim();
       inputFromUser = this.trimIfNecessary(inputFromUser);
 
       switch (inputFromUser) {
+        case 'git':
+          this.gitEasterEgg.emit();
+          break;
+
         case this.checkCommands(inputFromUser):
           this.sendInputStringFromCommand.emit(inputCommand.value);
           break;
 
         case this.checkCdCommands(inputFromUser):
-          this.cdCommand.emit(inputCommand.value);
+          this.directionCommand.emit(inputCommand.value);
           break;
 
         case 'cl':
@@ -104,7 +115,7 @@ export class TerminalInputComponent {
   }
 
   checkCdCommands(input: string): string {
-    for (const element of this.cdCommandPossibilities) {
+    for (const element of this.directionCommandPossibilities) {
       if (input === element) {
         return input;
       }

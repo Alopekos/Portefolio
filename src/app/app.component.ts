@@ -13,6 +13,8 @@ import { NeofetchCommandComponent } from './used-commands-component/used-command
 import { PortfolioV1Component } from './used-commands-component/used-commands-content/content-for-cd-command/portfolio-v1/portfolio-v1.component';
 import { InfoComponent } from './used-commands-component/used-commands-content/content-for-cd-command/info/info.component';
 import { GitComponent } from './used-commands-component/used-commands-content/git/git.component';
+import { AboutComponent } from './used-commands-component/used-commands-content/content-for-cat-command/about/about.component';
+import { RpgMapComponent } from './used-commands-component/used-commands-content/content-for-cd-command/rpg-map/rpg-map.component';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +34,8 @@ import { GitComponent } from './used-commands-component/used-commands-content/gi
     PortfolioV1Component,
     InfoComponent,
     GitComponent,
+    AboutComponent,
+    RpgMapComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -77,7 +81,7 @@ export class AppComponent {
     if (event == 'cd ~/' || event == '~/') this.currentPath = 'user/';
   }
 
-  onCdCommand(event: string): void {
+  onDirectionCommand(event: string): void {
     if (this.currentPath == 'user/') {
       switch (true) {
         case event.includes('projects'):
@@ -86,6 +90,7 @@ export class AppComponent {
           this.currentChild = event;
           break;
 
+        case event.includes('about'):
         case event.includes('info'):
           this.children.push(event);
           this.currentChild = event;
@@ -97,6 +102,12 @@ export class AppComponent {
           this.currentChild = event;
           break;
 
+        case event.includes('.27061987'):
+          window.open(
+            'https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1',
+            '_blank'
+          );
+          break;
         default:
           break;
       }
@@ -105,6 +116,11 @@ export class AppComponent {
     if (this.currentPath == 'user/projects/') {
       switch (true) {
         case event.includes('portfolio_v1'):
+          this.children.push(event);
+          this.currentChild = event;
+          break;
+
+        case event.includes('rpg_map'):
           this.children.push(event);
           this.currentChild = event;
           break;

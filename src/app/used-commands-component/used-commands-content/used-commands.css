@@ -121,14 +121,31 @@ li {
   pointer-events: none;
 }
 
+.fire-anim {
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  transform: translateX(-50%) rotate(160deg);
+  z-index: 10;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
 .left-container {
   position: relative;
   max-width: 30svw;
 }
 
-.left-container:hover .project-img {
+.left-container:hover .sleepy-fox {
   opacity: 1;
 }
+
+.left-container:hover .fire-anim {
+  opacity: 0.4;
+}
+
 .right-container {
   max-width: 50svw;
   padding-left: 5svw;
