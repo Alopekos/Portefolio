@@ -14,3 +14,16 @@ p {
   padding-right: 10svh;
   padding-left: 10svh;
 }
+
+@media (max-width: 1470px) {
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
+}

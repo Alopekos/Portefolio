@@ -19,7 +19,7 @@
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Standard syntax */
+  user-select: none; /* Standard */
 }
 
 html {
@@ -190,4 +190,18 @@ a {
   -webkit-background-clip: text;
   color: transparent;
   font-family: "Ubuntu Mono", serif;
+}
+
+@media (max-width: 1470px) {
+  li,
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
 }

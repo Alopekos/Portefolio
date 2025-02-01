@@ -68,7 +68,11 @@ p {
   display: flex;
   align-items: center;
 }
-
+.txt-in-icon {
+  font-size: 17px;
+  color: aliceblue;
+  text-wrap-mode: nowrap;
+}
 .icon {
   height: 22px;
   opacity: 1;
@@ -95,4 +99,99 @@ p {
 }
 .socials:hover > .arrow {
   opacity: 0;
+}
+
+@media (max-width: 1470px) {
+  input,
+  p {
+    font-size: 0.8em;
+  }
+
+  .neofetch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ascii-art {
+    font-size: 8px;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .neofetch-color-rect {
+    margin-top: 3svh;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    height: 4svh;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .neofetch-color-rect-two {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    height: 4svh;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .rect {
+    width: 12%;
+  }
+
+  .icon {
+    height: 14px;
+    opacity: 1;
+  }
+  .txt-in-icon {
+    font-size: 13px;
+  }
+  .icon-background {
+    align-items: center;
+    opacity: 1;
+    background-color: #269097;
+    border-radius: 4px;
+    width: 0;
+    transition: width 1s, opacity 0.4s;
+  }
+
+  .socials:hover > .icon-background {
+    opacity: 1;
+    width: 0;
+  }
+  .arrow {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6rem !important;
+    line-height: 1.5em;
+  }
+
+  .title-command {
+    font-size: 0.6em !important;
+  }
+
+  .icon {
+    height: 9px;
+    opacity: 1;
+  }
+  .txt-in-icon {
+    font-size: 9px;
+  }
 }

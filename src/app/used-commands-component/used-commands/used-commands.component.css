@@ -24,3 +24,17 @@ p {
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 1470px) {
+  input,
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
+}

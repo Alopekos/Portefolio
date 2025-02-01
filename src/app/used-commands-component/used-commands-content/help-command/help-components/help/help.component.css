@@ -7,3 +7,16 @@ p {
 .command {
   color: var(--g-cyan);
 }
+
+@media (max-width: 1470px) {
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
+}

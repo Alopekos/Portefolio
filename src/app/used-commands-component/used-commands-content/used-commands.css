@@ -68,7 +68,6 @@ li {
   padding-top: 0 !important;
 }
 .right-container p {
-  overflow: hidden;
   text-overflow: ellipsis;
   max-height: 15em; /* Adjust based on font size (5 lines x 1.5em line-height) */
   line-height: 1.5em; /* Ensure consistent line spacing */
@@ -158,6 +157,10 @@ pre {
   transition: opacity 1s ease-in-out;
 }
 
+.tux-ascii {
+  font-size: 10px !important;
+}
+
 .left-container {
   position: relative;
   max-width: 30svw;
@@ -243,4 +246,171 @@ pre {
 
 .soundtrack-player {
   border-radius: 15px;
+}
+
+@media (max-width: 1470px) {
+  input,
+  p {
+    font-size: 0.8em;
+  }
+
+  .text-container {
+    font-size: 0.8em;
+  }
+
+  .ascii-computer {
+    font-size: 4px;
+    color: aliceblue;
+  }
+  .ascii-godot {
+    font-size: 4px;
+    color: aliceblue;
+  }
+  .arrow {
+    display: none;
+  }
+
+  .text-container {
+    display: none;
+  }
+
+  .presentation-project {
+    font-size: 1rem !important;
+    line-height: 0.8rem !important;
+  }
+
+  .portfolio-presentation > a {
+    gap: 0;
+    width: auto;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 10svh;
+    font-size: 0.8em;
+  }
+  .godot-project {
+    font-size: 1rem !important;
+  }
+
+  .title-project {
+    font-size: 0.8em;
+  }
+  .right-container {
+    padding-right: 0.5svw !important;
+    padding-left: 0.5svw !important;
+  }
+
+  .container {
+    gap: 0.5svh !important;
+    padding-left: 0 !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .godot-project {
+    display: none;
+  }
+  .godot-right-container {
+    display: none;
+  }
+
+  .info-txt {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 620px) {
+  input,
+  p {
+    font-size: 0.6em;
+  }
+
+  .text-container {
+    font-size: 0.6em;
+  }
+
+  .ascii-computer {
+    font-size: 3px;
+    color: aliceblue;
+  }
+  .ascii-godot {
+    width: 100%;
+    font-size: 3px;
+    color: aliceblue;
+  }
+  .tux-ascii {
+    font-size: 5px !important;
+  }
+  .arrow {
+    display: none;
+  }
+
+  .text-container {
+    display: none;
+  }
+
+  .presentation-project {
+    font-size: 0.7rem !important;
+    line-height: 0.8rem !important;
+  }
+
+  .portfolio-presentation > a {
+    gap: 0;
+    width: auto;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 10svh;
+    font-size: 0.8em;
+  }
+
+  .title-project {
+    font-size: 0.6em;
+  }
+
+  .right-container {
+    padding-right: 0.5svw !important;
+  }
+
+  .container {
+    gap: 0.5svh !important;
+    padding-left: 0 !important;
+  }
+
+  .godot-project {
+    display: none;
+  }
+  .godot-right-container {
+    display: none;
+  }
+
+  .to-be-hidden-for-low-res-screen {
+    display: none !important;
+  }
+
+  .right-container-info {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container-info {
+    gap: 1svw;
+  }
+
+  .about-container > ul {
+    padding: 0;
+    font-size: 0.8em;
+  }
+
+  .about-container > p {
+    font-size: 0.8em;
+  }
 }

@@ -33,3 +33,17 @@ input {
   margin: 0 auto;
   animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
 }
+
+@media (max-width: 1470px) {
+  input,
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
+}

@@ -29,5 +29,23 @@ input {
   border: none;
   outline: none;
   height: 10svh;
-  width: 80%;
+  width: 60%;
+}
+
+@media (max-width: 1470px) {
+  input,
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 750px) {
+  li,
+  p {
+    font-size: 0.6em !important;
+  }
+
+  input {
+    width: 30%;
+  }
 }
